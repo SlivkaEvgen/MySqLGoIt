@@ -64,7 +64,7 @@ CREATE TABLE projects_companies
     project_id int NOT NULL,
     company_id   int NOT NULL,
     PRIMARY KEY (project_id, company_id),
-    FOREIGN KEY (project_id) REFERENCES developers (id),
+    FOREIGN KEY (project_id) REFERENCES project_id (id),
     FOREIGN KEY (company_id) REFERENCES companies (id)
 );
 
