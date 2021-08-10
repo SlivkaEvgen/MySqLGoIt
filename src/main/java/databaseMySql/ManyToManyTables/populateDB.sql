@@ -11,7 +11,7 @@ VALUES (1,'RichMan1', 100000,1),
        (3,'RichMan3', 300000,3);
 
 
-INSERT INTO developers(id,name, age, gender, email, numberPhone,company_id)
+INSERT INTO developers(id,name, age, gender, email, number_phone,company_id)
 VALUES (1,'Вася', 35, 'Male', 'abc@com.ua', 8765431,1),
        (2,'Коля', 25, 'Male', 'abc1@com.ua', 8765432,2),
        (3,'Костя', 26, 'Male', 'abc2@com.ua', 8765433,3),
@@ -53,10 +53,10 @@ VALUES (1,1),
        (11,2),
        (12,1);
 
-INSERT INTO projects(id,name, deadlines_days,company_id,customer_id)
-VALUES (1,'Bot', 45,1,1),
-       (2,'Car', 70,2,2),
-       (3,'School',55,3,3);
+INSERT INTO projects(id,name,company_id,customer_id)
+VALUES (1,'Bot',1,1),
+       (2,'Car',2,2),
+       (3,'School',3,3);
 
 INSERT INTO projects_companies(project_id, company_id)
 VALUES (1,1),

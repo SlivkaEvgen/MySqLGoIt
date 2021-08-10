@@ -1,54 +1,52 @@
-USE MySqlGoItHomeWork;
+﻿USE MySqlGoItHomeWork;
 
-CREATE TABLE companies
+
+CREATE TABLE IF NOT EXISTS companies
 (
     id                  INT PRIMARY KEY AUTO_INCREMENT,
-    name                VARCHAR(40),
-    totalCostOfProjects DECIMAL,
-    countProjects       INT,
-    countDevelopers     INT
+    name                VARCHAR(40) NOT NULL ,
+    total_cost_projects DECIMAL
 );
 
-CREATE TABLE customers
+CREATE TABLE IF NOT EXISTS customers
 (
     id         INT PRIMARY KEY AUTO_INCREMENT,
-    name       VARCHAR(40),
-    budget     DECIMAL,
-    company_id INT,
+    name       VARCHAR(40) NOT NULL,
+    budget     DECIMAL NOT NULL,
+    company_id INT NOT NULL,
     FOREIGN KEY (company_id) REFERENCES companies (id) ON DELETE CASCADE
 );
 
-CREATE TABLE developers
+CREATE TABLE IF NOT EXISTS developers
 (
     id          INT PRIMARY KEY AUTO_INCREMENT,
-    name        VARCHAR(30)            NOT NULL,
-    age         INT,
+    name        VARCHAR(30) NOT NULL,
+    age         INT NOT NULL ,
     gender      ENUM ('Male','Female') NOT NULL,
-    email       VARCHAR(30),
-    numberPhone BIGINT,
-    company_id  INT,
+    email       VARCHAR(30) NOT NULL,
+    number_phone BIGINT NOT NULL,
+    company_id  INT NOT NULL,
     FOREIGN KEY (company_id) REFERENCES companies (id) ON DELETE CASCADE
 );
 
-CREATE TABLE skills
+CREATE TABLE IF NOT EXISTS skills
 (
     id           INT PRIMARY KEY AUTO_INCREMENT,
-    activities   ENUM ('Java','C++','C#','JS'),
-    level        ENUM ('Junior','Middle','Senior')
+    activities   ENUM ('Java','C++','C#','JS') NOT NULL,
+    level        ENUM ('Junior','Middle','Senior') NOT NULL
 );
 
-CREATE TABLE projects
+CREATE TABLE IF NOT EXISTS projects
 (
     id             INT PRIMARY KEY AUTO_INCREMENT,
-    name           VARCHAR(40),
-    deadlines_days INT,
-    company_id     INT,
-    customer_id    INT,
+    name           VARCHAR(40) NOT NULL,
+    company_id     INT NOT NULL,
+    customer_id    INT NOT NULL,
     FOREIGN KEY (company_id) REFERENCES companies (id) ON DELETE CASCADE,
     FOREIGN KEY (customer_id) REFERENCES customers (id) ON DELETE CASCADE
 );
 
-CREATE TABLE developers_projects
+CREATE TABLE IF NOT EXISTS developers_projects
 (
     developer_id int NOT NULL,
     project_id   int NOT NULL,
@@ -57,7 +55,7 @@ CREATE TABLE developers_projects
     FOREIGN KEY (project_id) REFERENCES projects (id)
 );
 
-CREATE TABLE projects_companies
+CREATE TABLE IF NOT EXISTS projects_companies
 (
     project_id int NOT NULL,
     company_id   int NOT NULL,
@@ -66,7 +64,7 @@ CREATE TABLE projects_companies
     FOREIGN KEY (company_id) REFERENCES companies (id)
 );
 
-CREATE TABLE developers_skills
+CREATE TABLE IF NOT EXISTS developers_skills
 (
     developer_id int NOT NULL,
     skills_id   int NOT NULL,
