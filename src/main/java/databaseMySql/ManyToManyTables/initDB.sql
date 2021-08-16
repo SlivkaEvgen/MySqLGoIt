@@ -1,6 +1,5 @@
 ﻿USE MySqlGoItHomeWork;
 
-
 CREATE TABLE IF NOT EXISTS companies
 (
     id                  INT PRIMARY KEY AUTO_INCREMENT,
