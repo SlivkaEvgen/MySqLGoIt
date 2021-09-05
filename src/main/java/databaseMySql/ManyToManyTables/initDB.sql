@@ -53,15 +53,6 @@ CREATE TABLE IF NOT EXISTS developers_projects
     FOREIGN KEY (developer_id) REFERENCES developers (id),
     FOREIGN KEY (project_id) REFERENCES projects (id)
 );
-# DROP TABLE projects_companies;
-# CREATE TABLE IF NOT EXISTS projects_companies
-# (
-#     project_id int NOT NULL,
-#     company_id   int NOT NULL,
-#     PRIMARY KEY (project_id, company_id),
-#     FOREIGN KEY (project_id) REFERENCES projects (id),
-#     FOREIGN KEY (company_id) REFERENCES companies (id)
-# );
 
 CREATE TABLE IF NOT EXISTS developers_skills
 (
