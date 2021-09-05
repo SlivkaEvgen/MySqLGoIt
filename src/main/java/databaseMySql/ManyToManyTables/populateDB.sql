@@ -58,10 +58,10 @@ VALUES (1,'Bot',1,1),
        (2,'Car',2,2),
        (3,'School',3,3);
 
-# INSERT INTO projects_companies(project_id, company_id)
-# VALUES (1,1),
-#        (2,2),
-#        (3,3);
+ INSERT INTO projects_companies(project_id, company_id)
+ VALUES (1,1),
+        (2,2),
+        (3,3);
 
 INSERT INTO developers_projects(developer_id, project_id)
 VALUES (1,1),
